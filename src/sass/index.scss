@@ -1,0 +1,44 @@
+//Import other SASS Files here
+
+
+////////////////////////////////////////////////////////
+/// Below this line can be removed
+////////////////////////////////////////////////////////
+//Font Example
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../assets/fonts/Roboto-Regular.ttf');
+} 
+
+//Custom Sass can be removed for 
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto-Regular', sans-serif;
+}
+
+body, html {
+    height: 100vh;
+}
+
+.hero {
+    background-image: url('../assets/img/undraw_code_review_re_woeb.svg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+
+    display: flex;
+    align-items:flex-start;
+    justify-content: center;
+}
+////////////////////////////////////////////////////////
+/// Above this line can be removed
+////////////////////////////////////////////////////////
+
+
+//Alter Bootstrap SASS Files
+
+
+//Import Bootstrap SASS File
+@import '../../node_modules/bootstrap/scss/bootstrap';
