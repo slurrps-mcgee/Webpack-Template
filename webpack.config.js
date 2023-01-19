@@ -13,6 +13,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 //Find all html files for HTMLWebpackPlugin
+//Grab all html files as array
 var htmlFiles = [];
 var directories = ['src'];
 while (directories.length > 0) {
@@ -43,11 +44,11 @@ const config = {
             new HtmlWebpackPlugin({
                 template: htmlFile,
                 filename: htmlFile.replace(path.normalize("src/"), ""),
-        })),
+            })),
         //Handles the CSS bundle
         new MiniCssExtractPlugin({
             //adding contenthash will help browsers pickup new code even when caching
-            filename: "css/bundle-[contenthash].css", 
+            filename: "css/bundle-[contenthash].css",
         }),
         //Will clean the output path before building
         new CleanWebpackPlugin(),
@@ -73,6 +74,7 @@ const config = {
                 test: /\.s[ac]ss$/i,
                 use: [stylesHandler, 'css-loader', 'sass-loader'],
             },
+            ///Handle Assets///
             //Handles image assets
             {
                 test: /\.(eot|woff|woff2|png|jpg|gif)$/i,
@@ -94,6 +96,7 @@ const config = {
                     filename: 'assets/fonts/[name]-[hash][ext][query]'
                 }
             }
+            ////////////////////
 
             // Add your rules for custom modules here
             // Learn more about loaders from https://webpack.js.org/loaders/
@@ -112,15 +115,15 @@ const config = {
             }),
             new CssMinimizerPlugin(),
         ],
-      },
+    },
 };
 
 //Export for development or production this is where the config above will be returned
 module.exports = () => {
     if (isProduction) {
         config.mode = 'production';
-        
-        
+
+
     } else {
         config.mode = 'development';
     }
