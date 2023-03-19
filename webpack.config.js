@@ -30,9 +30,9 @@ const isProduction = process.env.NODE_ENV == 'production'; //Production Mode
 //Config
 const config = {
     entry: './src/index.ts', //Entry Point
-    output: { //Output
+    output: { // Javascript Output
         path: path.resolve(__dirname, 'docs'),
-        filename: 'js/bundle-[contenthash].js'
+        filename: 'bundle-[contenthash].js'
     },
     devServer: {
         open: true,
@@ -48,7 +48,7 @@ const config = {
         //Handles the CSS bundle
         new MiniCssExtractPlugin({
             //adding contenthash will help browsers pickup new code even when caching
-            filename: "css/bundle-[contenthash].css",
+            filename: "bundle-[contenthash].css",
         }),
         //Will clean the output path before building
         new CleanWebpackPlugin(),
